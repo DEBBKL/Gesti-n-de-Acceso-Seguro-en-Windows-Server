@@ -20,96 +20,143 @@ En este informe se detalla paso a paso la resolución de los dos casos práctico
 
 Asignar nombre significativo al servidor (ej. `SRV-DC01`), ajustar la zona horaria y reiniciar.
 
+---
+
 ### 2. Instalar el rol de Servicios de Dominio de Active Directory (AD DS)
 
-- Desde el **Administrador del servidor**, seleccionar "Agregar roles y características".
-- Seleccionar **Servicios de dominio de Active Directory**.
-- Confirmar e instalar el rol.
+Desde el Administrador del Servidor se inicia el asistente para agregar roles y características:
 
-![Instalación del rol AD DS](./capturas/1.PNG)
-![Selección del servidor destino](./capturas/2.PNG)
-![Servicios seleccionados para AD DS](./capturas/3.PNG)
-![Progreso de instalación](./capturas/4.PNG)
+![1. Asistente para agregar roles y características, antes de comenzar](./capturas/1.PNG)
 
-### 3. Promover el servidor a controlador de dominio
+Se seleccionan las características requeridas para Servicios de dominio de Active Directory:
 
-- Seleccionar "Agregar un nuevo bosque" e introducir el nombre del dominio raíz (ej. `midominioholding.com`).
-- Establecer la contraseña de DSRM.
-- Confirmar configuración DNS y nombre NetBIOS.
-- Finalizar instalación y reiniciar.
+![2. Desea agregar las características requeridas para servicios de dominio de Active Directory](./capturas/2.PNG)
 
-![Promoción del servidor a controlador](./capturas/5.PNG)
-![Configuración de nuevo bosque](./capturas/6.PNG)
-![Configuración de DSRM](./capturas/7.PNG)
-![Configuración NetBIOS](./capturas/8.PNG)
-![Resumen final de configuración](./capturas/9.PNG)
-![Instalación completada](./capturas/10.PNG)
+Se selecciona el rol de Servicios de dominio de Active Directory:
 
-### 4. Configurar red del cliente y unirlo al dominio
+![3. Seleccionar roles del servidor](./capturas/3.PNG)
 
-- Establecer IP manual y DNS del servidor.
-- Unir el cliente al dominio `midominioholding.com`.
+Se confirman las selecciones antes de la instalación:
 
-![Configuración de red cliente](./capturas/11.PNG)
-![Unir cliente al dominio](./capturas/12.PNG)
+![4. Confirmar selecciones de instalación](./capturas/4.PNG)
 
-### 5. Crear OU y usuarios
+Se procede a hacer clic en instalar para iniciar el proceso:
 
-- Desde “Usuarios y equipos de Active Directory”, crear:
-  - OU "Gestión financiera" (usuarios: Rosa Pérez, María García, Raúl Jiménez).
-  - OU "Dirección" (usuarios: Laura Rodríguez, Jaime Borges).
-
-![Creación de OU Gestión financiera](./capturas/13.PNG)
-![Creación de OU Dirección](./capturas/14.PNG)
-![Creación de usuario Rosa Pérez](./capturas/15.PNG)
-
-### 6. Verificar acceso
-
-- Iniciar sesión desde el cliente como Rosa Pérez para validar la correcta autenticación en el dominio.
+![5. Hacer clic en instalar](./capturas/5.PNG)
 
 ---
 
-## Caso Práctico 2: Despliegue de software y permisos con GPO
+### 3. Promover el servidor a controlador de dominio
 
-### 1. Crear carpeta compartida “Presets” con instalador de Chrome
+### 3. Promover a controlador de dominio
 
-- Crear `C:\Presets` en el servidor y colocar el archivo `.msi` descargado desde Chrome Enterprise.
-- Compartir la carpeta (ej. `\\midominioholding.local\Presets`) con permisos de lectura.
+Se inicia la promoción del servidor a controlador de dominio desde el Administrador del Servidor:
 
-### 2. Crear GPO para instalación de Chrome en "Gestión financiera"
+![6. Promover este servidor a controlador de dominio](./capturas/6.PNG)
 
-- En GPMC, crear y vincular GPO “Presets” a la OU “Gestión financiera”.
-- Editar la GPO:
-  - Ruta: `Configuración de usuario > Directivas > Configuración de software > Instalación de software`.
-  - Nuevo > Paquete > ruta UNC al `.msi`.
-  - Tipo de implementación: **Asignado**.
+Se configura la implementación como un nuevo bosque con el nombre de dominio `midominioholding.com`:
 
-**[Inserte aquí captura de la GPO Presets con ruta al instalador .msi]**
+![7. Configuración de implementación](./capturas/7.PNG)
 
-### 3. Crear carpeta compartida “Documentación confidencial”
+Se definen las opciones del controlador de dominio, incluyendo la contraseña DSRM:
 
-- Crear `C:\DocumentaciónConfidencial` en el servidor.
-- Compartir solo con usuarios del grupo Dirección (lectura/escritura).
-- Ajustar también los permisos NTFS desde la pestaña **Seguridad**.
+![8. Opciones del controlador de dominio](./capturas/8.PNG)
 
-### 4. Crear GPO para acceso directo a “Documentación confidencial”
+Se revisan y confirman todas las opciones antes de la instalación:
 
-- En GPMC, crear y vincular GPO “Documentación Confidencial” a la OU Dirección.
-- Editar la GPO:
-  - Ruta: `Configuración de usuario > Preferencias > Configuración de Windows > Accesos Directos`.
-  - Crear acceso directo con destino: `\\midominioholding.local\DocumentaciónConfidencial`.
-  - Ubicación: Escritorio del usuario.
+![9. Revisar opciones](./capturas/9.PNG)
 
-**[Inserte aquí captura de acceso directo creado en GPO]**
+---
 
-- Marcar ambas GPOs como **exigidas (enforced)**.
+### 4. Configurar cliente y unir al dominio
 
-### 5. Configurar política de expiración de contraseñas
+Se configura la propiedad de red del servidor para asignar una IP fija y el DNS apuntando al servidor:
 
-- Crear GPO a nivel de dominio para forzar cambio de contraseña cada 7 días.
-- Ruta: `Configuración del equipo > Directivas > Configuración de Windows > Configuración de seguridad > Directivas de cuenta > Directiva de contraseñas > Vigencia máxima`.
+![10. Propiedades: Protocolo de Internet versión 4 TCP IPv4](./capturas/10.PNG)
 
-**[Inserte aquí captura de la directiva de expiración de contraseña]**
+Resultado tras la configuración de IP y DNS:
+
+![11. Resultado tras el paso 10](./capturas/11.PNG)
+
+Se verifica la creación de las Unidades Organizativas (OU) en Usuarios y Equipos de Active Directory, ejemplo OU “Gestión financiera”:
+
+![12. Usuarios y equipos de Active Directory - Gestión Financiera](./capturas/12.PNG)
+
+Se crea también la OU “Dirección”:
+
+![13. Usuarios y equipos de Active Directory - Dirección](./capturas/13.PNG)
+
+---
+
+### 5. Crear usuarios y asignar permisos
+
+Se definen permisos en carpetas compartidas para la GPO “Presets”:
+
+![14. Permisos de Presets](./capturas/14.PNG)
+
+Se crea el usuario "Rosa Pérez" con su correo electrónico asociado:
+
+![15. Configuración usuario "Rosa Pérez @debbholding.com"](./capturas/15.PNG)
+
+---
+
+### 6. Despliegue de software y permisos con GPO
+
+Se prepara el instalador de Google Chrome (archivo `.msi`) en la carpeta compartida “Presets”:
+
+![16. Preset Google Chrome](./capturas/16.PNG)
+
+La carpeta está compartida y accesible en red:
+
+![17. Acceso a la red, la carpeta está compartida](./capturas/17.PNG)
+
+Desde la consola de administración de directivas de grupo (GPMC) se crea y vincula la GPO “Presets” en el dominio:
+
+![18. Administración de directivas, crear GPO en este dominio y vincularlo aquí](./capturas/18.PNG)
+
+En el editor de administración de directivas de grupo se configura la instalación del software Google Chrome usando la ruta UNC al `.msi`:
+
+![19. Editor de administración de directivas de grupo, configuración de software, instalación de Google Chrome](./capturas/19.PNG)
+
+Se aplica la política a la OU “Gestión financiera” con filtrado de seguridad adecuado:
+
+![20. Gestión Financiera, presets, filtrado de seguridad](./capturas/20.PNG)
+
+Se crea la carpeta “Documentación Confidencial” y se comparte para usuarios del grupo Dirección:
+
+![21. La carpeta está compartida, Documentación Confidencial](./capturas/21.PNG)
+
+---
+
+### 7. Configuración de permisos y accesos
+
+Se configuran los permisos NTFS y de compartición para la carpeta “Documentación Confidencial”:
+
+![22. Permisos de la carpeta de Documentación Confidencial](./capturas/22.PNG)
+
+Desde la consola de administración de directivas de grupo, se crea y vincula la GPO “Documentación Confidencial” en la OU Dirección:
+
+![23. Administración de directivas de grupo, Dirección, Documentación Confidencial](./capturas/23.PNG)
+
+En el editor de administración de directivas de grupo se crea un acceso directo en el escritorio del usuario con destino a la carpeta compartida:
+
+![24. Editor de administración de directivas de grupo, directiva de Documentación Confidencial, configuración de Windows, accesos directos](./capturas/24.PNG)
+
+Resultado tras aplicar la política y comprobar el acceso directo en el escritorio:
+
+![25. Resultado del bosque abierto con la administración de directivas de grupo](./capturas/25.PNG)
+
+Se prueba el acceso intentando abrir la carpeta desde un grupo sin permisos, lo que es denegado correctamente:
+
+![26. Comprobación de permisos intentando abrir el directorio desde otro grupo sin permisos](./capturas/26.PNG)
+
+---
+
+### 8. Política de expiración de contraseñas
+
+Desde la consola de dominios se configura la política de expiración de contraseñas con un límite de 7 días:
+
+![27. Dominios, contraseñas](./capturas/27.PNG)
 
 ---
 
