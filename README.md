@@ -20,6 +20,12 @@ Este repositorio contiene dos casos prácticos principales:
 
 - **Caso práctico 2: Despliegue de software y permisos con GPO.** Instalación automática de Google Chrome en los equipos de la OU “Gestión financiera” mediante una directiva de grupo. Configuración de acceso exclusivo a la carpeta “Documentación confidencial” para la OU “Dirección” mediante GPO. Finalmente, implementación de una política de seguridad para forzar el cambio de contraseña cada 7 días.
 
+- **Preguntas Teóricas:** Evaluación de conceptos clave sobre roles, permisos, GPOs y acceso.
+  
+- **Capturas:** Evidencia visual paso a paso.
+
+- **Licencia:** Detalles legales de uso y redistribución.
+
 ## Estructura del repositorio
 
 ```
@@ -27,12 +33,44 @@ Este repositorio contiene dos casos prácticos principales:
 ├── README.md
 ├── Informe-Técnico.md
 ├── capturas/
-└── docs/
+└── LICENSE.md
+
 ```
 
-> **Nota:** Las imágenes se añadirán posteriormente en la carpeta `capturas/` cuando estén recortadas e integradas visualmente.
+
+## Tecnologías utilizadas
+
+- **Windows Server 2019**
+- **Active Directory Domain Services (AD DS)**
+- **Group Policy Management Console (GPMC)**
+- **Cliente Windows 10**
+- Compartición de recursos en red con permisos NTFS y de red
+
+## Uso del repositorio
+
+Este material está pensado como guía práctica para:
+
+- Formación técnica en administración de sistemas Windows Server
+- Laboratorios de entornos controlados
+- Referencia para despliegue básico de Active Directory y GPOs
+
+Puedes adaptarlo o ampliarlo para tus propias prácticas siempre que respetes la licencia.
+
+## Licencia
+
+Este repositorio se encuentra bajo la licencia:
+
+**Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)**  
+https://creativecommons.org/licenses/by-nc/4.0/
+
+> Puedes copiar, adaptar y compartir el contenido **siempre que cites a la autora (Déborah Loisel)** y no se utilice con fines comerciales.
+
+---
 
 ## Autor y fecha
 
-- **Autor:** Déborah Loisel Santana  
-- **Fecha:** 7 de mayo de 2025
+Déborah Loisel | Julio de 2025
+[soydeborahloisel@gmail.com](mailto:soydeborahloisel@gmail.com)  
+[github.com/DEBBKL](https://github.com/DEBBKL)
+
+
