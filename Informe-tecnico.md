@@ -4,18 +4,21 @@
 - [Introducción](#introducción)  
 - [Caso Práctico 1: Creación del dominio Active Directory](#caso-práctico-1-creación-del-dominio-active-directory)  
 - [Caso Práctico 2: Despliegue de software y permisos con GPO](#caso-práctico-2-despliegue-de-software-y-permisos-con-gpo)  
-- [Preguntas Teóricas](#preguntas-teóricas)  
+- [Preguntas Teóricas](#preguntas-teóricas)
+
+---
 
 ## Introducción
 
 En este informe se detalla paso a paso la resolución de los dos casos prácticos relacionados con la gestión segura del acceso en un entorno Windows Server. Se explica cómo configurar un controlador de dominio Active Directory, organizar unidades y usuarios, y aplicar directivas de grupo (GPO) para automatizar tareas de administración y reforzar la seguridad. Cada sección incluye objetivos, configuraciones a realizar y los resultados esperados. El estilo es técnico y estructurado para facilitar su comprensión y replicación.
 
+---
+
 ## Caso Práctico 1: Creación del dominio Active Directory
 
 ### 1. Preparar el servidor (nombre y zona horaria)
 
-- Asignar un nombre significativo al servidor (ej. `SRV-DC01`) y corregir la zona horaria.
-- Reiniciar el servidor para aplicar los cambios.
+Asignar nombre significativo al servidor (ej. `SRV-DC01`), ajustar la zona horaria y reiniciar.
 
 ### 2. Instalar el rol de Servicios de Dominio de Active Directory (AD DS)
 
@@ -23,7 +26,10 @@ En este informe se detalla paso a paso la resolución de los dos casos práctico
 - Seleccionar **Servicios de dominio de Active Directory**.
 - Confirmar e instalar el rol.
 
-**[Inserte aquí captura de pantalla del asistente de instalación del rol]**
+![Instalación del rol AD DS](./capturas/1.PNG)
+![Selección del servidor destino](./capturas/2.PNG)
+![Servicios seleccionados para AD DS](./capturas/3.PNG)
+![Progreso de instalación](./capturas/4.PNG)
 
 ### 3. Promover el servidor a controlador de dominio
 
@@ -32,12 +38,20 @@ En este informe se detalla paso a paso la resolución de los dos casos práctico
 - Confirmar configuración DNS y nombre NetBIOS.
 - Finalizar instalación y reiniciar.
 
-**[Inserte aquí captura de pantalla de la promoción a controlador de dominio]**
+![Promoción del servidor a controlador](./capturas/5.PNG)
+![Configuración de nuevo bosque](./capturas/6.PNG)
+![Configuración de DSRM](./capturas/7.PNG)
+![Configuración NetBIOS](./capturas/8.PNG)
+![Resumen final de configuración](./capturas/9.PNG)
+![Instalación completada](./capturas/10.PNG)
 
 ### 4. Configurar red del cliente y unirlo al dominio
 
 - Establecer IP manual y DNS del servidor.
 - Unir el cliente al dominio `midominioholding.com`.
+
+![Configuración de red cliente](./capturas/11.PNG)
+![Unir cliente al dominio](./capturas/12.PNG)
 
 ### 5. Crear OU y usuarios
 
@@ -45,7 +59,9 @@ En este informe se detalla paso a paso la resolución de los dos casos práctico
   - OU "Gestión financiera" (usuarios: Rosa Pérez, María García, Raúl Jiménez).
   - OU "Dirección" (usuarios: Laura Rodríguez, Jaime Borges).
 
-**[Inserte aquí captura de pantalla con las OU y usuarios creados]**
+![Creación de OU Gestión financiera](./capturas/13.PNG)
+![Creación de OU Dirección](./capturas/14.PNG)
+![Creación de usuario Rosa Pérez](./capturas/15.PNG)
 
 ### 6. Verificar acceso
 
