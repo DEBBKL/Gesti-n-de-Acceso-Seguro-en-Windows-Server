@@ -1,10 +1,24 @@
 # Informe Técnico: Gestión de Acceso y Seguridad en Windows Server
 
-## Índice
-- [Introducción](#introducción)  
-- [Caso Práctico 1: Creación del dominio Active Directory](#caso-práctico-1-creación-del-dominio-active-directory)  
-- [Caso Práctico 2: Despliegue de software y permisos con GPO](#caso-práctico-2-despliegue-de-software-y-permisos-con-gpo)  
+## Tabla de contenidos
+
+- [Introducción](#introducción)
+- [Caso Práctico 1: Creación del dominio Active Directory](#caso-práctico-1-creación-del-dominio-active-directory)
+  - [1. Preparar el servidor](#1-preparar-el-servidor)
+  - [2. Instalar el rol AD DS](#2-instalar-el-rol-ad-ds)
+  - [3. Promover a controlador de dominio](#3-promover-a-controlador-de-dominio)
+  - [4. Configurar cliente y unir al dominio](#4-configurar-cliente-y-unir-al-dominio)
+  - [5. Crear usuarios y asignar permisos](#5-crear-usuarios-y-asignar-permisos)
+  - [6. Despliegue de software y permisos con GPO](#6-despliegue-de-software-y-permisos-con-gpo)
+  - [7. Configuración de permisos y accesos](#7-configuración-de-permisos-y-accesos)
+  - [8. Política de expiración de contraseñas](#8-política-de-expiración-de-contraseñas)
 - [Preguntas Teóricas](#preguntas-teóricas)
+  - [a) Modificación de permisos](#a-cómo-se-modifican-los-permisos-de-un-usuario-en-una-carpeta-compartida)
+  - [b) Acceso local vs remoto](#b-en-qué-se-diferencia-el-acceso-local-del-acceso-remoto-en-un-entorno-windows-server)
+  - [c) Función de GPMC](#c-qué-función-tiene-la-consola-de-administración-de-directivas-de-grupo-gpmc-en-la-gestión-de-permisos)
+  - [d) Usuario estándar vs administrador](#d-qué-diferencia-hay-entre-un-usuario-estándar-y-un-usuario-con-privilegios-de-administrador)
+- [Licencia](#licencia)
+- [Autor y fecha](#autor-y-fecha)
 
 ---
 
@@ -16,13 +30,13 @@ En este informe se detalla paso a paso la resolución de los dos casos práctico
 
 ## Caso Práctico 1: Creación del dominio Active Directory
 
-### 1. Preparar el servidor (nombre y zona horaria)
+### 1. Preparar el servidor
 
 Asignar nombre significativo al servidor (ej. `SRV-DC01`), ajustar la zona horaria y reiniciar.
 
 ---
 
-### 2. Instalar el rol de Servicios de Dominio de Active Directory (AD DS)
+### 2. Instalar el rol AD DS
 
 Desde el Administrador del Servidor se inicia el asistente para agregar roles y características:
 
@@ -46,7 +60,7 @@ Se procede a hacer clic en instalar para iniciar el proceso:
 
 ---
 
-### 3. Promover el servidor a controlador de dominio
+### 3. Promover a controlador de dominio
 
 Se inicia la promoción del servidor a controlador de dominio desde el Administrador del Servidor:
 
