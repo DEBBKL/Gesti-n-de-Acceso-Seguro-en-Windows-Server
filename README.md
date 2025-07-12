@@ -6,11 +6,27 @@ Este repositorio educativo se centra en la **gestión de acceso y seguridad de r
 - [Descripción general del proyecto](#descripción-general-del-proyecto)  
 - [Casos prácticos y competencias técnicas](#casos-prácticos-y-competencias-técnicas)  
 - [Estructura del repositorio](#estructura-del-repositorio)  
-- [Autor y fecha](#autor-y-fecha)  
+- [Autor y fecha](#autor-y-fecha)
+- [Tabla de contenidos](#tabla-de-contenidos)  
 
 ## Descripción general del proyecto
 
 El proyecto aborda la **gestión de acceso al sistema y a recursos** en un dominio Windows Server. Se monta un dominio de Active Directory denominado, por ejemplo, `midominioholding.com`. Dentro de este dominio se crean **Unidades Organizativas (OU)** como “Gestión financiera” y “Dirección”, y se configuran usuarios asociados a cada unidad. A su vez, se aplican **Políticas de Grupo (GPO)** para automatizar tareas comunes: por ejemplo, instalar Google Chrome automáticamente en las máquinas cliente de un grupo de usuarios y crear accesos directos a recursos compartidos. También se incluyen directivas de seguridad para forzar el cambio de contraseña periódico y restringir accesos a carpetas confidenciales. En conjunto, estas actividades refuerzan las competencias técnicas de **administración de Active Directory, gestión de usuarios y permisos, configuración de redes y recursos compartidos, y aplicación de políticas de seguridad**.
+
+---
+
+## Tabla de contenidos
+
+- [Informe Técnico](./Informe-tecnico.md)
+  
+  - [Introducción](./Informe-tecnico.md#introducción)
+  - [Caso Práctico 1: Creación del dominio Active Directory](./Informe-tecnico.md#caso-práctico-1-creación-del-dominio-active-directory)
+  - [Caso Práctico 2: Despliegue de software y permisos con GPO](./Informe-tecnico.md#caso-práctico-2-despliegue-de-software-y-permisos-con-gpo)
+  - [Preguntas Teóricas](./Informe-tecnico.md#preguntas-teóricas)
+  - [Licencia](./LICENSE.md)
+  - [Autor y Fecha](./Informe-tecnico.md#autor-y-fecha)
+ 
+---
 
 ## Casos prácticos y competencias técnicas
 
