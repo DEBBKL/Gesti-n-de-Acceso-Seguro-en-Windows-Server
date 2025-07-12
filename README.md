@@ -1,4 +1,4 @@
-#Gestión de Acceso Seguro en Windows Server
+# Gestión de Acceso Seguro en Windows Server
 
 Este repositorio educativo se centra en la gestión de acceso y seguridad de recursos en entornos Windows Server. Su propósito es mostrar la configuración de un dominio de Active Directory, la creación de unidades organizativas y usuarios, así como la implementación de políticas de grupo (GPO) para controlar el acceso al sistema y desplegar software de manera automatizada. Se aborda la instalación y promoción del servidor como controlador de dominio, la configuración de permisos en carpetas compartidas y la aplicación de directivas de seguridad (contraseñas, accesos, etc.) con un enfoque práctico en ciberseguridad.
 
