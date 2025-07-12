@@ -48,8 +48,6 @@ Se procede a hacer clic en instalar para iniciar el proceso:
 
 ### 3. Promover el servidor a controlador de dominio
 
-### 3. Promover a controlador de dominio
-
 Se inicia la promoción del servidor a controlador de dominio desde el Administrador del Servidor:
 
 ![6. Promover este servidor a controlador de dominio](./capturas/6.PNG)
