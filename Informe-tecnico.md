@@ -203,4 +203,18 @@ Permite:
 
 ---
 
-**Fin del informe técnico.**
+## Licencia
+
+Este documento se distribuye bajo la licencia [Creative Commons Reconocimiento-NoComercial 4.0 Internacional (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/).
+
+Esto significa que puedes compartir y adaptar el contenido del informe siempre que se reconozca la autoría, no se utilice con fines comerciales, y se mantenga la atribución adecuada.  
+No se permite el uso comercial del contenido sin permiso explícito del autor.
+
+---
+
+## Autor y fecha
+
+**Autor:** Déborah Loisel  
+**Email:** soydeborahloisel@gmail.com  
+**Fecha de elaboración:** Julio 2025  
+**Ubicación:** Las Palmas de Gran Canaria, España
